@@ -1,1 +1,4 @@
 setting.py
+.credentials
+__pycache__
+TweetData/

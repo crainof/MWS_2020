@@ -1,8 +1,29 @@
-from twitter import *
 import setting
+import os
+
+from twitter import *
+
 #import os,sys,time
 #import re
 #import emoji
+
+# settingファイルからapi keyなどを読み込む
+CN = "ツイート収集API"
+CK = setting.CONSUMER_KEY
+CS = setting.CONSUMER_SECRET
+
+TWITTER_CREDS = os.path.expanduser('.credentials') #過去に認証したときの情報
+if not os.path.exists(TWITTER_CREDS):
+  oauth_dance(CN, CK, CS, TWITTER_CREDS)
+oauth_token, oauth_secret = read_token_file(TWITTER_CREDS)
+
+twitter = Twitter(auth=OAuth(oauth_token, oauth_secret, CK, CS)) # 指定したkeywordでtweetを取得
+
+os.makedirs("TweetData", exist_ok=True)
+#twitter_number = 1 #tweetが入っているファイルの識別子
+
+#stream = TwitterStream(auth=OAuth(oauth_token, oauth_secret, CK, CS)) #新着ツイートを探すstream
+# 普通のTwitter APIで'in_reply_to_status_id'を参照するtwitterの2つを用意する。
 
 #NG words
 #ここでタプルに追加した単語（記号）を含むツイートは収集から除外される。
@@ -14,23 +35,7 @@ import setting
 #Retry time
 #retry_time = 60
 
-CN = "ツイート収集API" #CONSUMER_NAME
-CK = setting.CK
-CS = setting.CS
-
-#過去に認証したときのTokenを探す。
-TWITTER_CREDS = os.path.expanduser('.credentials')
-if not os.path.exists(TWITTER_CREDS):
-  #無ければ、OAuthで認証
-  oauth_dance(CN, CK, CS, TWITTER_CREDS)
-oauth_token, oauth_secret = read_token_file(TWITTER_CREDS)
-
-# Tokenを用いて、Streaming APIで新着ツイートを見つけるstreamと、普通のTwitter APIで'in_reply_to_status_id'を参照するtwitterの2つを用意する。
-#stream = TwitterStream(auth=OAuth(oauth_token, oauth_secret, CK, CS))
-#twitter = Twitter(auth=OAuth(oauth_token, oauth_secret, CK, CS))
-
 #count = 0
-#twitter_number = 0
 
 # 正規表現パターンを構築
 #emoji_pattern = re.compile("["
@@ -87,14 +92,22 @@ oauth_token, oauth_secret = read_token_file(TWITTER_CREDS)
 #      return False
 #  return True
 
-#def main():
- # while True:
- #   #with open('Data/twitter_data_' + twitter_number + '.txt', 'w') as tf:
- #   #ストリームに接続して適当にツイートを読み出す
- #   statuses = stream.statuses.sample()
+
+def main():
+  keyword = "#バグ"
+  tweet_data_list = os.listdir("TweetData")
+  list_len = len(tweet_data_list)
+
+  while True:
+    with open("TweetData/" + str(list_len + 1) + ".txt", "w") as tf:
+      tweet = twitter.search.tweets(q=keyword)
+      print(tweet)
+      break
+    #statuses = stream.statuses.sample() #ストリームに接続して適当にツイートを読み出す
+
  #   for status in statuses:
  #     #参照に送る
  #     show(status)
 
-#if __name__ == '__main__':
-#  main()
+if __name__ == '__main__':
+  main()

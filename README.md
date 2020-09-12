@@ -6,4 +6,4 @@
 # インストール
 - Twitter API
 
- `pip install python-twitter` 
+ `pip install twitter`(sixohsix)
