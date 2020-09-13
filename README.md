@@ -6,9 +6,10 @@
 # インストール
 - Twitter API関連
 
- `pip install twitter`(sixohsix) 
-
- `pip install emoji 
+```
+pip install twitter`(sixohsix) 
+pip install emoji(絵文字除去のため)
+```
 
 # 問題点
 - Twitter API
