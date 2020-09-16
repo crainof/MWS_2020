@@ -19,8 +19,5 @@ pip install emoji(絵文字除去のため)
   - 同じツイートが抽出されている？
   - 必要ないと思うが残しておく
 
-# 留意点
-  - 使用する場合はsetting.pyでkeyやtokenなどを記入してください
-
 # Visual Studioのファイルについて
 - pyprojはpushするが、.svoファイルなどはpushしなくてよい
