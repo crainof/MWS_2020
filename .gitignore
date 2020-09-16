@@ -2,3 +2,8 @@ setting.py
 .credentials
 __pycache__
 TweetData/
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+*.pyproj
