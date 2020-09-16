@@ -20,7 +20,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="mws_2020.py" />
     <Compile Include="scraping_n.py">
       <SubType>Code</SubType>
     </Compile>
