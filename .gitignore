@@ -6,4 +6,4 @@ TweetData/
 *.suo
 *.user
 *.sln.docstates
-*.pyproj
+/.vs
