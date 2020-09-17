@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>77d059a3-2e40-40d0-9225-5e8fbcd8efc6</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>scraping.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>

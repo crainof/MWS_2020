@@ -2,13 +2,16 @@
 
 import tkinter
 from tkinter import messagebox
+from scraping import get_html
 
 #ボタンクリック実行
 
 def button_click():
 
     input_value = input_box.get()
-    messagebox.showinfo(input_value,"リスク：〇〇\n 詳細：○○　\n")
+    html = get_html(input_value)
+    print(html)
+    messagebox.showinfo(input_value,"リスク：〇〇\n 詳細：○○\n")
 
 
 #ウィンドウ作成
