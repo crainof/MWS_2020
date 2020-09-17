@@ -1,3 +1,4 @@
+import selenium                # Selenium自体のインポート
 from selenium import webdriver # Selenium WebDriverのインポート
 
 def get_html(url):
@@ -7,11 +8,16 @@ def get_html(url):
         url: URL(文字列)
     return:
         html: htmlソース(文字列)
+              URLが存在しなかった場合は""(空の文字列)を返す
 
     '''
     driver = webdriver.Firefox() # FirefoxのWebDriverの読み込み
-    driver.get(url)              # Firefoxでurlのページを開く
-    html = driver.page_source
+    try:
+        driver.get(url)          # Firefoxでurlのページを開く
+        html = driver.page_source
+    except selenium.common.exceptions.InvalidArgumentException:
+        print("URLが存在しません")
+        html = ""
     return html
 
 if __name__ == '__main__':
