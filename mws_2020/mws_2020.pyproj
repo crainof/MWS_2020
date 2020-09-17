@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>77d059a3-2e40-40d0-9225-5e8fbcd8efc6</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>main.py</StartupFile>
+    <StartupFile>scraping.py</StartupFile>
     <SearchPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\Shared\Python37_64</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -22,6 +22,9 @@
   <ItemGroup>
     <Compile Include="main.py" />
     <Compile Include="scraping_n.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="scraping.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tag_list.py" />
