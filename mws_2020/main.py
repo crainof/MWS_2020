@@ -3,6 +3,7 @@
 import tkinter
 from tkinter import messagebox
 from scraping import get_html
+from extract_hit_word import extract_hit_word
 
 #ボタンクリック実行
 
@@ -11,6 +12,8 @@ def button_click():
     input_value = input_box.get()
     html = get_html(input_value)
     print(html)
+    hit_word_dict = extract_hit_word(html)
+    print(hit_word_dict)
     messagebox.showinfo(input_value,"リスク：〇〇\n 詳細：○○\n")
 
 

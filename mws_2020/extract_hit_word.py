@@ -21,7 +21,6 @@ def extract_hit_word(curl_result):
     for pattern in tag_list.all_tag:
         matched_list = re.findall(pattern, curl_result) # htmlをpatternで検索
         hit_word_dict[pattern] = len(matched_list)
-    print(hit_word_dict)
 
     return hit_word_dict
 
