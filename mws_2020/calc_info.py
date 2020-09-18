@@ -1,5 +1,25 @@
 import tag_list
 
+#ful_name = ["名前","氏名","お名前","フルネーム","Full Name","おなまえ"]#氏名
+#fst_name = ["First Name","名"]#名
+#lst_name = ["Last Name","姓"]#姓
+#red_name = ["ふりがな","フリガナ","カナ氏名"]#ふりがな
+#mail_add = ["メールアドレス","Email","E-mail"]#メールアドレス
+#paswd = ["パスワード","Password"]#パスワード
+#usrid = ["ユーザID","ID","ユーザーネーム","Username"]#ユーザID
+#country=["Country","Region","国","地域"]#国
+#company=["Company","お勤め先"]#会社名
+#gender =["性","性別"]#性別
+#birth = ["生年月日","誕生日"] #生年月日
+#tel = ["電話番号","連絡先"] #電話番号
+#addr = ["お住まい","住所","都道府県","市区群", "町村"] #住所
+#addr_area =["お住いの地域"] #地方区分 
+#post_code = ["郵便番号"] #郵便番号
+#card = ["クレジットカード"] #クレジットカード
+#school=["学校種別","学校名","卒業"] #学歴
+
+
+
 #model_value()
 #詳細
 #   JNSAのモデルに基づいて計算するものです
@@ -87,6 +107,8 @@ def model_value(l):
     con["model_par"] = model
     return con
 
+#抽出されたタグ一覧のdictからlistを抜き出す
+
 def is_tag(d):
     l = []
     for key,v in d.items():
@@ -152,11 +174,8 @@ def is_tag(d):
 
         
 
-#d = {"名前":4,"クレジットカード":3, "学校名":0, "国":1}
-
+#d = {"名前":4,"クレジットカード":3, "学校名":0, "国":1,"お勤め先":0}
 
 #l = is_tag(d)
-
-#l = ["氏名","名","会社名","国","性別","郵便番号"]
-#con = model_value(d)
+#con = model_value(l)
 #print(con)
