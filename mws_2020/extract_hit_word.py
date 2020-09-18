@@ -25,12 +25,13 @@ def extract_hit_word(curl_result):
 
     return hit_word_dict
 
-def main():
-    url = "https://grp01.id.rakuten.co.jp/rms/nid/registfwd?service_id=top" #楽天
+# テスト
+#def main():
+#    url = "https://grp01.id.rakuten.co.jp/rms/nid/registfwd?service_id=top" #楽天
 
-    curl_result = subprocess.run(["curl ", url],stdout = subprocess.PIPE, stderr = subprocess.PIPE)
-    curl_result = curl_result.stdout.decode("utf8")
-    extract_hit_word(curl_result)
+#    curl_result = subprocess.run(["curl ", url],stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+#    curl_result = curl_result.stdout.decode("utf8")
+#    extract_hit_word(curl_result)
 
-if __name__ == "__main__":
-    main()
+#if __name__ == "__main__":
+#    main()
