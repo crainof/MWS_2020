@@ -1,3 +1,4 @@
+import tag_list
 
 #model_value()
 #詳細
@@ -87,10 +88,75 @@ def model_value(l):
     return con
 
 def is_tag(d):
+    l = []
+    for key,v in d.items():
+        if(v==0):
+            continue
+
+        #氏名
+        for item in ful_name:
+            if(key == item):
+                l.append("氏名")
+        #名
+        if(key == "First Name" or key == "名"):
+            l.append("名")
+        #姓
+        if(key == "Last Name" or key == "姓"):
+            l.append("姓")
+        #ふりがな
+        if(key == "ふりがな" or key == "フリガナ" or key == "カナ氏名"):
+            l.append("ふりがな")
+        #メールアドレス
+        if(key == "メールアドレス" or key == "Email" or key == "E-mail"):
+            l.append("メールアドレス")
+        #ユーザID
+        if(key == "ユーザID" or key == "ID" or key == "ユーザーネーム" or key == "Username"):
+            l.append("ユーザID")
+        #国
+        if(key == "Country" or key == "Region" or key == "国" or key == "地域"):
+            l.append("国")
+        #会社名
+        if(key == "Company" or key == "お勤め先"):
+            l.append("会社名")
+        #性別
+        if(key == "性" or key == "性別"):
+            l.append("性別")
+        #生年月日
+        if(key == "生年月日" or key == "誕生日"):
+            l.append("生年月日")
+        #電話番号
+        if(key == "電話番号" or key == "連絡先"):
+            l.append("電話番号")
+        #住所
+        for item in addr:
+            if(key == item):
+                l.append("住所")
+        #地方区分
+        for item in addr_area:
+            if(key == item):
+                l.append("地方区分")
+        #郵便番号
+        if(key == "郵便番号"):
+            l.append("郵便番号")
+        #クレジットカード
+        if(key == "クレジットカード"):
+            l.append("クレジットカード")
+        #学歴
+        for item in school:
+            if(key == item):
+                l.append("クレジットカード")
+    return l
+
+        
 
 
+        
+
+#d = {"名前":4,"クレジットカード":3, "学校名":0, "国":1}
 
 
-#d = ["氏名","名","会社名","国","性別","郵便番号"]
+#l = is_tag(d)
+
+#l = ["氏名","名","会社名","国","性別","郵便番号"]
 #con = model_value(d)
 #print(con)
