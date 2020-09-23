@@ -31,13 +31,31 @@ def button_click():
     score_dict = model_value(is_tag(hit_word_dict))
     print(score_dict)
     connected_detail = ""
+    connected_score =""
     for i, detail in enumerate(score_dict["detail"]):
         if not(i == (len(score_dict["detail"])-1)):
             connected_detail += detail + ","
         else:
             connected_detail += detail
 
-    messagebox.showinfo(input_value,"リスク：" +  score_dict["score"] + "\n 詳細：" + connected_detail + "\n")
+    for item, score in score_dict["model_par"].items():
+        if(item=="basic"):
+            connected_score+="基礎情報価値："
+         
+        if(item=="kibi"):
+            connected_score+="機微情報度："
+        if(item=="tokutei"):
+            connected_score+="本人特定容易度："
+
+        if(item=="syakai"):
+            connected_score+="社会的責任度："
+        
+        connected_score += str(score)+" "
+        
+
+
+
+    messagebox.showinfo(input_value,"リスク：" +  score_dict["score"] + "\n 詳細：" + connected_detail + "\n スコア："+connected_score)
 
 
     if cb_name_b.get()==True:
@@ -60,6 +78,7 @@ def button_click():
         text+="E"
     if rl_22_b.get()==True:
         text+="F"
+
     messagebox.showinfo(input_value,text)
 
     

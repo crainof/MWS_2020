@@ -20,6 +20,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="calc_info.py" />
+    <Compile Include="extract_hit_word.py" />
     <Compile Include="main.py" />
     <Compile Include="scraping_n.py">
       <SubType>Code</SubType>
