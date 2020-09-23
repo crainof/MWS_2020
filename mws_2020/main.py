@@ -21,7 +21,7 @@ root.geometry("380x420")
 def add_item():
     l = []
     if cb_name_b.get()==True:
-        l.append("名前")
+        l.append("氏名")
     if cb_address_b.get()==True:
         l.append("住所")
     if cb_pn_b.get()==True:
@@ -52,13 +52,15 @@ def button_click():
 
     input_value = input_box.get()
 
-    html = get_html(input_value)
-#   print(html)
+    html,driver = get_html(input_value)
+    driver.close()
+
+    print(html)
     hit_word_dict = extract_hit_word(html)
-#   score_dict = model_value(is_tag(hit_word_dict))
+    score_dict = model_value(is_tag(hit_word_dict))
     word_list = is_tag(hit_word_dict)
     word_list.extend(add_item())
-#   print(word_list)
+    print(word_list)
     score_dict = model_value(word_list)
     
 
