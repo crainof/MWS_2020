@@ -45,6 +45,14 @@ def model_value(l):
     con ={}
     model ={}
 
+    #空のリストが渡された時
+    if (len(l)== 0):
+        con["score"] = "-"
+        con["money"] = 0
+        con["detail"] = []
+        con["model_par"] = model
+        return con
+
     #基礎情報価値
     model["basic"]=500
 
@@ -60,8 +68,20 @@ def model_value(l):
     for tag in l:
         if tag == "クレジットカード":
             x=1
-        elif (tag =="国") or (tag == "学歴"):
+        elif (tag =="国") or (tag == "学歴") or (tag == "a(パスポート、口座番号のみ・クレジットカード番号のみ)"):
             y=1
+        elif (tag == "b(口座番号+暗証番号、クレジットカード情報+有効期限)"):
+            y = 2
+        elif tag == "c(身体・知的障がい情報、学歴、試験得点、趣味・特技、国籍)":
+            x = 1
+        elif tag == "d(犯罪歴、前科前歴、与信ブラックリスト)":
+            x = 2
+            y = 2
+        elif tag == "e(年収・年収区分、資産、残高、所得、給与・賞与額、借入、借金)":
+            x = 1
+            y = 1
+        elif tag == "f(精神障害情報、介護度、政治的項目、病状)":
+            x = 2
         elif tag== "氏名":
             flag_nam = 1
         elif tag == "住所":
