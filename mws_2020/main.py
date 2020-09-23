@@ -3,6 +3,9 @@
 import sys
 import tkinter
 from tkinter import messagebox
+from scraping import get_html
+from extract_hit_word import extract_hit_word
+from calc_info import is_tag, model_value
 
 
 #ウィンドウ作成
@@ -21,6 +24,20 @@ def button_click():
 
 
     input_value = input_box.get()
+
+    html = get_html(input_value)
+    print(html)
+    hit_word_dict = extract_hit_word(html)
+    score_dict = model_value(is_tag(hit_word_dict))
+    print(score_dict)
+    connected_detail = ""
+    for i, detail in enumerate(score_dict["detail"]):
+        if not(i == (len(score_dict["detail"])-1)):
+            connected_detail += detail + ","
+        else:
+            connected_detail += detail
+
+    messagebox.showinfo(input_value,"リスク：" +  score_dict["score"] + "\n 詳細：" + connected_detail + "\n")
 
 
     if cb_name_b.get()==True:
