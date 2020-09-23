@@ -18,7 +18,11 @@ import tag_list
 #card = ["クレジットカード"] #クレジットカード
 #school=["学校種別","学校名","卒業"] #学歴
 
-
+# 最大値を計算
+def calc_max_score():
+    score = 500 * (10**2 + 5**2) * 6 * 2 #基礎情報価値×機微情報度×本人特定容易度×社会的責任度
+    # print(score)
+    return score
 
 #model_value()
 #詳細
@@ -35,7 +39,6 @@ import tag_list
 #          "money": int(120000), #
 #            "detail": ["名前",...],#入力を求められる項目
 #       "model_par": {"basic": 500,... } }   
-
 
 def model_value(l):
 
@@ -88,15 +91,25 @@ def model_value(l):
         tmp_sy = 2
     model["syakai"] = tmp_sy
     
+    max_score = calc_max_score()
+    score_threshold_list = []
+
+    # 最大値から4つの閾値を求める
+    score_threshold = 0
+    for i in range(4):
+        score_threshold += (max_score/4)
+        score_threshold_list.append(score_threshold)
+    # print(score_threshold_list)
+
     #金額計算
     money = 500 * tmp_ki * tmp_to * tmp_sy
 
     #score判定
-    if money >=15000:
+    if money >= score_threshold_list[2]:
         score = "S"
-    elif (money <15000) and (money >= 12000):
+    elif (money < score_threshold_list[2]) and (money >= score_threshold_list[1]):
         score = "A"
-    elif (money <12000) and (money >= 6000):
+    elif (money < score_threshold_list[1]) and (money >= score_threshold_list[0]):
         score = "B"
     else:
         score = "C"
@@ -169,10 +182,7 @@ def is_tag(d):
                 l.append("クレジットカード")
     return l
 
-        
-
-
-        
+# max_score() #最大:750000        
 
 #d = {"名前":4,"クレジットカード":3, "学校名":0, "国":1,"お勤め先":0}
 
