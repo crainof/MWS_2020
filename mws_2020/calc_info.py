@@ -116,7 +116,7 @@ def is_tag(d):
             continue
 
         #氏名
-        for item in ful_name:
+        for item in tag_list.ful_name:
             if(key == item):
                 l.append("氏名")
         #名
@@ -150,11 +150,11 @@ def is_tag(d):
         if(key == "電話番号" or key == "連絡先"):
             l.append("電話番号")
         #住所
-        for item in addr:
+        for item in tag_list.addr:
             if(key == item):
                 l.append("住所")
         #地方区分
-        for item in addr_area:
+        for item in tag_list.addr_area:
             if(key == item):
                 l.append("地方区分")
         #郵便番号
@@ -164,7 +164,7 @@ def is_tag(d):
         if(key == "クレジットカード"):
             l.append("クレジットカード")
         #学歴
-        for item in school:
+        for item in tag_list.school:
             if(key == item):
                 l.append("クレジットカード")
     return l
