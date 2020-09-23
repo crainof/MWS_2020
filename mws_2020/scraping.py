@@ -18,7 +18,7 @@ def get_html(url):
     except selenium.common.exceptions.InvalidArgumentException:
         print("URLが存在しません")
         html = ""
-    return html
+    return html,driver
 
 if __name__ == '__main__':
     test_url = "https://www.shopjapan.co.jp/shop/customer/entry"

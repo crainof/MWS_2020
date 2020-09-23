@@ -2,6 +2,7 @@
 
 import sys
 import tkinter
+import scraping
 from tkinter import messagebox
 from scraping import get_html
 from extract_hit_word import extract_hit_word
@@ -25,7 +26,9 @@ def button_click():
 
     input_value = input_box.get()
 
-    html = get_html(input_value)
+    html,driver = get_html(input_value)
+    driver.close()
+
     print(html)
     hit_word_dict = extract_hit_word(html)
     score_dict = model_value(is_tag(hit_word_dict))
@@ -63,9 +66,6 @@ def button_click():
     messagebox.showinfo(input_value,text)
 
     
-
-
-
 
 
 #ラベル作成
