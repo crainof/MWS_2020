@@ -7,3 +7,4 @@ TweetData/
 *.user
 *.sln.docstates
 /.vs
+/mws_2020/geckodriver.log
