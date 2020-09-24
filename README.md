@@ -14,7 +14,8 @@ webサイトの登録画面における個人の情報漏洩のリスクを通�
 - Visual Studio
 
 ## Usage
-`python3 main.py`
+- Visual Studio: main.pyをスタートアップファイルとして設定→`実行
+- その他:`python3 main.py`
 
 ## Install
 Webスクレイピングのために、seleniumをが必要である。
