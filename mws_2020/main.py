@@ -75,22 +75,22 @@ def button_click():
 
     for item, score in score_dict["model_par"].items():
         if(item=="basic"):
-            connected_score+="基礎情報価値："
+            connected_score+="\n基礎情報価値："
          
         if(item=="kibi"):
-            connected_score+="機微情報度："
+            connected_score+="\n機微情報度："
         if(item=="tokutei"):
-            connected_score+="本人特定容易度："
+            connected_score+="\n本人特定容易度："
 
         if(item=="syakai"):
-            connected_score+="社会的責任度："
+            connected_score+="\n社会的責任度："
         
         connected_score += str(score)+" "
         
 
 
 
-    messagebox.showinfo(input_value,"リスク：" +  score_dict["score"] + "\n 詳細：" + connected_detail + "\n スコア："+connected_score)
+    messagebox.showinfo(input_value,"リスク：" +  score_dict["score"] +"\n"+ "\n詳細：" + connected_detail + "\n\nスコア：\n"+connected_score)
 
     #if cb_name_b.get()==True:
     #    text+="名前"
@@ -127,20 +127,20 @@ def only_check():
 
     for item, score in score_dict["model_par"].items():
         if(item=="basic"):
-            connected_score+="基礎情報価値："
+            connected_score+="\n基礎情報価値："
          
         if(item=="kibi"):
-            connected_score+="機微情報度："
+            connected_score+="\n機微情報度："
         if(item=="tokutei"):
-            connected_score+="本人特定容易度："
+            connected_score+="\n本人特定容易度："
 
         if(item=="syakai"):
-            connected_score+="社会的責任度："
+            connected_score+="\n社会的責任度："
         
         connected_score += str(score)+" "
         
 
-    messagebox.showinfo("評価値","リスク：" +  score_dict["score"] + "\n 詳細：" + connected_detail + "\n スコア："+connected_score)
+    messagebox.showinfo("評価値","リスク：" +  score_dict["score"] +"\n"+ "\n詳細：" + connected_detail + "\n\nスコア："+connected_score)
 
     
 
