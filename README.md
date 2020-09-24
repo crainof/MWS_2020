@@ -14,7 +14,7 @@ webサイトの登録画面における個人の情報漏洩のリスクを通�
 - Visual Studio
 
 ## Usage
-
+`python3 main.py`
 
 ## Install
 Webスクレイピングのために、seleniumをが必要である。
