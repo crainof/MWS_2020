@@ -14,3 +14,4 @@ Python3.7
 ## Usage
 
 ## Install
+`pip install selenium`
