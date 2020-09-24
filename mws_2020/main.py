@@ -90,7 +90,7 @@ def button_click():
 
 
 
-    messagebox.showinfo(input_value,"リスク：" +  score_dict["score"] +"\n"+ "\n詳細：" + connected_detail + "\n\nスコア：\n"+connected_score)
+    messagebox.showinfo(input_value,"リスク：" +  score_dict["score"] +"\n"+ "\n詳細：" + connected_detail + "\n\nスコア："+str(score_dict["money"])+"\n"+connected_score)
 
     #if cb_name_b.get()==True:
     #    text+="名前"
@@ -140,7 +140,7 @@ def only_check():
         connected_score += str(score)+" "
         
 
-    messagebox.showinfo("評価値","リスク：" +  score_dict["score"] +"\n"+ "\n詳細：" + connected_detail + "\n\nスコア："+connected_score)
+    messagebox.showinfo("評価値","リスク：" +  score_dict["score"] +"\n"+ "\n詳細：" + connected_detail + "\n\nスコア："+str(score_dict["money"])+"\n"+connected_score)
 
     
 
