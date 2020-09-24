@@ -45,6 +45,14 @@ def model_value(l):
     con ={}
     model ={}
 
+    #空のリストが渡された時
+    if (len(l)== 0):
+        con["score"] = "-"
+        con["money"] = 0
+        con["detail"] = []
+        con["model_par"] = model
+        return con
+
     #基礎情報価値
     model["basic"]=500
 
@@ -58,17 +66,33 @@ def model_value(l):
 
 
     for tag in l:
-        if tag == "クレジットカード":
-            x=1
-        elif (tag =="国") or (tag == "学歴"):
-            y=1
-        elif tag== "氏名":
+        if x==0:
+            if tag == "クレジットカード":
+                x=1
+            elif tag == "c(身体・知的障がい情報、学歴、試験得点、趣味・特技、国籍)":
+                x = 1
+        if y==0:
+            if (tag =="国") or (tag == "学歴") or (tag == "a(パスポート、口座番号のみ・クレジットカード番号のみ)"):
+                y=1
+        if tag == "e(年収・年収区分、資産、残高、所得、給与・賞与額、借入、借金)":
+            if x!=2:
+                x = 1
+            if y!=2:
+                y = 1    
+        if tag == "f(精神障害情報、介護度、政治的項目、病状)":
+            x = 2
+        elif (tag == "b(口座番号+暗証番号、クレジットカード情報+有効期限)"):
+            y = 2
+        elif tag == "d(犯罪歴、前科前歴、与信ブラックリスト)":
+            x = 2
+            y = 2
+        if tag== "氏名":
             flag_nam = 1
-        elif tag == "住所":
+        if tag == "住所":
             flag_add = 1
-        elif tag == "電話番号":
+        if tag == "電話番号":
             flag_tel = 1
-        elif tag == "会社名":
+        if tag == "会社名":
             flag_com = 1
 
     #機微情報度
@@ -79,9 +103,9 @@ def model_value(l):
     tmp_to = 1
     if (flag_nam == 1):
         tmp_to = 3
-    elif (flag_add==1)and(flag_tel==1):
+    if (flag_add==1)and(flag_tel==1):
         tmp_to = 3
-    elif (flag_nam == 1)and(flag_add ==1):
+    if (flag_nam == 1)and(flag_add ==1):
         tmp_to = 6
     model["tokutei"]=tmp_to
 
