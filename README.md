@@ -23,5 +23,5 @@ Webスクレイピングのために、seleniumをが必要である。
 
 `pip install selenium`
 
-さらに、seleniumの起動にはブラウザに応じたWebDriverが必要である。今回はFirefoxを使用したためhttps://github.com/mozilla/geckodriver/releases
-からダウンロード
+さらに、seleniumの起動にはブラウザに応じたWebDriverが必要である。Firefoxを使用したためhttps://github.com/mozilla/geckodriver/releases
+からダウンロードし、Driverのフォルダのパスを環境変数に追加する。
