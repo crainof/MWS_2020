@@ -16,8 +16,8 @@ webサイトの登録画面における個人の情報漏洩のリスクを通�
 
  登録する情報を用いて計算を行うモデルにより、情報漏洩のリスクを改めて確認することができる。
 
-## Demo
-1. main.pyを実行
+## Usage
+1. `python3 main.py`を実行、Visual Studioではmain.pyをスタートアップファイルとして設定→`実行
 2. 入力フォームが表示される
 
 <img src = "https://user-images.githubusercontent.com/58422123/94141929-750d7b00-fea8-11ea-923e-da3176f9092c.png" width = 40%>
@@ -43,10 +43,6 @@ webサイトの登録画面における個人の情報漏洩のリスクを通�
 - OS:Windows
 - 言語:Python 3.7
 - Visual Studio
-
-## Usage
-- Visual Studio: main.pyをスタートアップファイルとして設定→`実行
-- その他:`python3 main.py`
 
 ## Install
 Webスクレイピングのために、seleniumをが必要である。
