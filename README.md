@@ -1,33 +1,30 @@
 Personal Information Risk Checker
 ====
 
-Overview
+## Overview
 webサイトの登録画面における個人の情報漏洩のリスクを通知するアプリケーション
 
 ## Description
  
- 登録する情報を用いてモデル[1]()により、情報漏洩のリスクを確認することができる。
+ 登録する情報を用いてモデル[(1)]()により、情報漏洩のリスクを確認することができる。
 
  次の機能が実装されています。
   - 入力されたURLの会員登録ページをスクレイピングし、情報漏洩のリスクを計算する
 
- Windows 10で動作確認済みとなります。 
-
-
 
 ## Development Environment
-- OS:Windows
+- OS:Windows 10
 - 言語:Python 3.7
 - Visual Studio
 
 ## Install
-Webスクレイピングのために、seleniumをが必要である。
+Webスクレイピングのために、seleniumが必要である。
 
 以下のコマンドでインストールする。
 
 `pip install selenium`
 
-さらに、seleniumの起動にはブラウザに応じたWebDriverが必要である。Firefoxを使用したためhttps://github.com/mozilla/geckodriver/releases
+さらに、seleniumの起動にはブラウザに応じたWebDriverが必要である。Firefoxを使用するためhttps://github.com/mozilla/geckodriver/releases
 からダウンロードし、Driverのフォルダのパスを環境変数に追加する。
 
 ## Usage
